@@ -1,3 +1,4 @@
+/*global Recipes, Ingredient, SimpleSchema, RecipeSchema*/
 Recipes = new Mongo.Collection('recipes');
 
 Recipes.allow({

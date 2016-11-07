@@ -1,0 +1,10 @@
+<template name="Requests">
+	<section class="requests">
+		{{> quickForm  collection="Requests" id="insertRequestForm" type="insert" omitFields="createdAt" class="new-request-form" }}
+	</section>
+	<section class="requests">
+	    {{#each requests}}
+	        {{> Request}}
+	    {{/each}}
+	</section>
+</template>
