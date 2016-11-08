@@ -4,6 +4,9 @@ Buildings = new Mongo.Collection('buildings');
 Buildings.allow({
 	insert: function(userId, doc) {
 		return !!userId;
+	},
+	update: function(userId, doc) {
+		return!!userId;
 	}
 });
 
@@ -79,6 +82,12 @@ BuildingSchema = new SimpleSchema({
 			type: "hidden"
 		}
 	}
+});
+
+Meteor.methods({
+	deleteBuilding: function(id) {
+		Buildings.remove(id);
+	}	
 });
 
 Buildings.attachSchema( BuildingSchema );

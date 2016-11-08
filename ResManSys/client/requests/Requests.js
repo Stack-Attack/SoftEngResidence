@@ -1,3 +1,4 @@
+/*global Requests*/
 Meteor.subscribe("requests");
 
 Template.Requests.helpers({

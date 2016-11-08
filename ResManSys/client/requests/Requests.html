@@ -1,7 +1,7 @@
+<!--This is a template - it is used in other files()-->
+<!-- Could put in a div on the management side, or new page -->
 <template name="Requests">
-	<section class="requests">
-		{{> quickForm  collection="Requests" id="insertRequestForm" type="insert" omitFields="createdAt" class="new-request-form" }}
-	</section>
+	{{> NewRequest}}
 	<section class="requests">
 	    {{#each requests}}
 	        {{> Request}}

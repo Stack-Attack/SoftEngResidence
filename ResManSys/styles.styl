@@ -34,8 +34,7 @@ light-grey = #EEE
 blaze-orange = #FFC20E
 cobalt = #00427A
 red = #FFC20E
-teal = #82D8D8
-dark-teal = #66A6A6
+teal = #A7A9AC
 green = #CBE56C
 blue = #16528E
 bright-blue = #FFC20E
@@ -144,7 +143,28 @@ p
         margin-bottom 10px
     textarea, input
         width 100%
- 
+        
+.new-request-container
+    @extend .new-building-container
+    
+.customerUserButton
+display inline-block
+    cursor pointer
+    background teal
+    color #FFF
+    text-decoration none
+    text-transform uppercase
+    padding 5px 15px
+    border solid 3px blaze-orange
+    border-radius 2px
+    font-weight 800
+    shadow-level(1)
+    trans()
+    &:hover
+        background @background - 20
+        border-color @background
+        shadow-level(2)    
+    
 .btn, button
     display inline-block
     cursor pointer
@@ -333,7 +353,7 @@ input, select, textarea
         margin-bottom 10px
     button
         margin-top 20px
-    .fa-trash
+    .fa-trash, .fa-pencil
         opacity 0.3
         cursor pointer
         position absolute
@@ -347,6 +367,11 @@ input, select, textarea
         &:hover
             color red
             opacity 0.6
+    .fa-pencil
+        right 40px
+        &:hover
+            color cobalt
+        
     .ingredient
         display inline-block
         margin-right 10px

@@ -1,8 +1,13 @@
+<!--This is a template - it is used in other files()-->
 <template name="Buildings">
-	{{> NewBuilding}}
+	 {{#if $.Session.get 'newBuilding'}}  						<!--when newBuilding is true, the html template for adding a new building will be visible-->
+	 	{{> NewBuilding}}                                         
+	 {{else}}	                                                <!-- if it's false(ie: you click the little close button) it will show the "New Building" button-->
+		<button class="btn-new-building">New Building</button>
+	{{/if}}
 	<section class="buildings">
 	    {{#each buildings}}
-	        {{> Building}}
+	        {{> Building}}                                                      <!-- {{> Building}} is coming from Building.html -->
 	    {{/each}}
 	</section>
 </template>
