@@ -1,3 +1,5 @@
+// The first part is for listing building sorted by name. This obtains the values from the collection(database).
+// The second part for creating a building when the form is sumbitted.
 Meteor.subscribe("buildings");
 
 Template.Buildings.helpers({
