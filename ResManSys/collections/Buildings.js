@@ -1,4 +1,4 @@
-/*global Buildings, Room, SimpleSchema, BuildingSchema*/
+/*global Buildings, SimpleSchema, BuildingSchema, Facility*/
 Buildings = new Mongo.Collection('buildings');
 
 Buildings.allow({
@@ -10,38 +10,12 @@ Buildings.allow({
 	}
 });
 
-/*
-Device = new SimpleSchema({
-	name: {
-		type: String
-	},
-	desc: {
-		type:String
-	}
-});
 
-Room = new SimpleSchema({
-	number: {
-		type: int
-	},
-	typeOfRoom: {
-		// Integer for certain types of rooms
-		type: int
-	},
-	avalible: {
-		type: boolean,
-		autoValue: function(){
-			return 1		
-		},
-		autoform: {
-			type: "hidden"		
-		}
-	},
-	devices: {
-		type: [Device]
+Facility = new SimpleSchema({
+	name: {
+		type: String,
 	}
 });
-*/
 
 BuildingSchema = new SimpleSchema({
 	name: {
@@ -54,18 +28,17 @@ BuildingSchema = new SimpleSchema({
 		label: "Address"
 	},
 	
-/*	rooms: {
-		type: [Room]
-		autoValue: function() {
-		    return the rooms that have been assigned to this building
-		}
+	facilities: {
+		optional: true,
+		type: [Facility],
+		label: "Facilities"
 	},
-*/
+	
 	author: {
 		type: String,
 		label: "Author",
 		autoValue: function() {
-			return this.userId
+			return this.userId;
 		},
 		autoform: {
 			type: "hidden"
@@ -76,7 +49,8 @@ BuildingSchema = new SimpleSchema({
 		type: Date,
 		label: "Created At",
 		autoValue: function() {
-			return new Date()
+			if(null)
+				return new Date();
 		},
 		autoform: {
 			type: "hidden"

@@ -1,0 +1,8 @@
+<!-- Meteor quickform to insert room into Rooms collection -->
+
+<template name="NewRoom">
+	<div class="new-room-container">
+		<i class="fa fa-close"></i>
+		{{ > quickForm  collection="Rooms" id="insertRoomForm" type="insert" class="new-room-form" }}	
+	</div>
+</template>

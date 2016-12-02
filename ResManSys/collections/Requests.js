@@ -4,9 +4,11 @@ Requests = new Mongo.Collection('requests');
 Requests.allow({
 	insert: function(userId, doc) {
 		return !!userId;
+	},
+	update: function(userId, doc) {
+		return !!userId;
 	}
 });
-
 
 RequestSchema = new SimpleSchema({
 	type: {
@@ -29,11 +31,19 @@ RequestSchema = new SimpleSchema({
 		type: String,
 		label: "Room"
 	},
+	completed: {
+		type: Boolean,
+		defaultValue: false,
+		optional: true,		
+		autoform: {
+			type: "hidden"		
+		}
+	},
 	author: {
 		type: String,
 		label: "Author",
 		autoValue: function() {
-			return this.userId
+			return this.userId;
 		},
 		autoform: {
 			type: "hidden"
@@ -43,12 +53,18 @@ RequestSchema = new SimpleSchema({
 		type: Date,
 		label: "Created At",
 		autoValue: function() {
-			return new Date()
+			return new Date();
 		},
 		autoform: {
 			type: "hidden"
 		}
 	}
+});
+
+Meteor.methods({
+	deleteRequest: function(id) {
+		Requests.remove(id);
+	}	
 });
 
 Requests.attachSchema( RequestSchema );

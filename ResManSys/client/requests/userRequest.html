@@ -1,0 +1,13 @@
+<!--This is a template - it is used in other files()-->
+<template name="UserRequest">
+        <article class="request">
+            {{#if completed}}
+               <button class='btn-user-request'>Request Complete</button>
+            {{else}}
+                <button class='btn-user-request'>Request Pending</button>
+            {{/if}}
+            <h3>{{type}}</h3>
+            <p><b>Description:</b> {{desc}}</p>
+            <i class="fa fa-trash"></i>
+        </article>
+</template>

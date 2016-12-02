@@ -1,7 +1,13 @@
 <!-- This is html to be added within page layouts. -->
 <template name="Header">
     <header>
-		<h1>LURMS++</h1>
-		{{> loginButtons}}
+		<h1>LURMS∞</h1>
+		{{#if currentUser}}
+			<span class="logout"><h2>Logout</h2></span>	
+		{{else}}
+			<span class="login-toggle"><h2>Login/Sign-up</h2></span>
+		{{/if}}
 	</header>
+
+	{{> LoginModal}}
 </template>

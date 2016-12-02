@@ -1,0 +1,18 @@
+<!--This is a template - it is used in other files()-->
+<!-- Only rooms with associated with a building id are listed -->
+<template name="Rooms">
+	<button><a href="/manage-buildings-page">Back to Buildings Page</a></button> 
+	<p></p>
+	 {{#if $.Session.get 'newRoom'}}  						
+	 	{{> NewRoom}}                                         
+	 {{else}}	                                                
+		<button class="btn-new-room">New Room</button>
+	{{/if}}
+	<section class="rooms">
+	    {{#each rooms}}
+	    	{{#if inBuilding building_id}}
+	        	{{> Room}} 
+	        {{/if}}
+	    {{/each}}
+	</section>
+</template>

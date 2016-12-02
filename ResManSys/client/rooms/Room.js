@@ -1,12 +1,16 @@
+// Copying Blake is fun, then modifying
+// Modifying is very hard, rate me well
+
 // This is for the update quick form to be able to call
 // this method to get the unique id you want updated
-Template.Building.onCreated(function(){
-   this.editMode = new ReactiveVar(false);                                    //Reactive vars are used instead of session variables because each building template
+
+Template.Room.onCreated(function(){
+   this.editMode = new ReactiveVar(false);
 });                                                                           //needs it's own variable to be in editmode, or else clicking edit on one would open up the editmode for all
 
 
-Template.Building.helpers({
-   updateBuildingId: function() {                                             //This is just to make the update fields look nicer
+Template.Room.helpers({
+   updateRoomId: function() {                                             //This is just to make the update fields look nicer
       return this._id;
    },
    
@@ -15,9 +19,9 @@ Template.Building.helpers({
    }
 });
 
-Template.Building.events({
+Template.Room.events({
    'click .fa-trash' : function() {
-      Meteor.call('deleteBuilding', this._id);                               //This is calling the 'deleteBuilding' method in ../collections/Buildings.js to remove the desired building from the mongo collection
+      Meteor.call('deleteRoom', this._id);
    },
    
    'click .fa-pencil' : function(event, template) {

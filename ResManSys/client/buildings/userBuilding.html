@@ -1,0 +1,12 @@
+<template name="UserBuilding">
+        <article class="building">
+            <h3>{{name}}</h3>
+               <p>{{address}}</p>
+               <p>
+                   {{#each facilities}}
+                   <span class="facility">{{name}},</span>
+                   {{/each}}
+                </p>
+               <a href="/view-building-rooms/{{_id}}">Rooms</a>
+        </article>
+</template>

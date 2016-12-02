@@ -27,7 +27,7 @@ fastclick
 raix:handlebar-helpers
 aldeed:collection2
 aldeed:autoform
-accounts-ui
+aldeed:template-extension
 accounts-password
 matb33:bootstrap-glyphicons
 zimme:active-route
@@ -35,5 +35,8 @@ gwendall:auth-client-callbacks
 meteortoys:allthings
 datariot:ganalytics
 stolinski:stylus-multi
+accounts-base
+useraccounts:unstyled
+
 
 check

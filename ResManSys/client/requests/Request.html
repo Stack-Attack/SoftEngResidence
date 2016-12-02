@@ -1,10 +1,20 @@
 <!--This is a template - it is used in other files()-->
 <template name="Request">
         <article class="request">
+            {{#if completed}}
+               <button class='toggleComplete completed'>Done</button>
+            {{else}}
+                <button class='toggleComplete completed'>Not done</button>
+            {{/if}}
             <h3>{{type}}</h3>
-            <p>{{desc}}</p>
-            <p>{{room}}</p>
-            <p>{{author}}</p>
-            <p>{{createdAt}}</p>            
+            <p><b>Description:</b> {{desc}}</p>
+            <p><b>Room:</b> {{room}}</p>
+            <p><b>From:</b> {{author}}</p>
+            {{#if completed}}
+                <p><b>Completed:</b> {{createdAt}}</p>
+            {{else}}
+                <p><b>Submitted:</b> {{createdAt}}</p>
+            {{/if}}
+            <i class="fa fa-trash"></i>
         </article>
 </template>

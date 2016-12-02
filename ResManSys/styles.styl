@@ -95,10 +95,23 @@ header
         a
             color #FFF
             text-decoration none
+    h2
+        margin 0
+        float right
+
  
 p
     color #333
- 
+.login-toggle
+    color cobalt
+    float right
+    cursor pointer
+    &:hover
+        color #FFF
+.logout
+    @extend .login-toggle
+    
+    
 .page-title
     text-transform uppercase
     text-align center
@@ -126,6 +139,10 @@ p
    
 .new-building
     margin-bottom 20px
+    
+.new-room
+    @extend .new-building
+
  
 .new-building-container
     position relative
@@ -145,6 +162,12 @@ p
         width 100%
         
 .new-request-container
+    @extend .new-building-container
+
+.new-announcement-container
+    @extend .new-building-container
+    
+.new-room-container
     @extend .new-building-container
     
 .customerUserButton
@@ -172,9 +195,10 @@ display inline-block
     color #FFF
     text-decoration none
     text-transform uppercase
+    margin-bottom 15px 
     padding 5px 15px
     border solid 3px blaze-orange
-    border-radius 2px
+    border-radius 5px
     font-weight 800
     shadow-level(1)
     trans()
@@ -182,6 +206,11 @@ display inline-block
         background @background - 20
         border-color @background
         shadow-level(2)
+    &.btn-user-request
+        cursor default
+        &:hover
+            background @background - 5
+            border-color @background
     &.btn-primary
         background teal
         border-color teal
@@ -345,7 +374,7 @@ input, select, textarea
             display none
         .remove-from-menu  
             display block
-    h3
+    h3, h4
         font-size: 3em;
         opacity: 0.3;
         border-bottom: rgba(0,0,0, 0.3) solid 3px
@@ -382,6 +411,10 @@ input, select, textarea
 
 .request
     @extend .building
+.announcement
+    @extend .building
+.room
+    @extend .building
  
 @keyframes card
     0%
@@ -417,3 +450,37 @@ input, select, textarea
         left auto
         a
             color cobalt
+
+.login-modal 
+    position: fixed;
+    border: solid 4px $dblue;
+    top: 20%;
+    left: 50%;
+    padding: 20px;
+    width: 50%;
+    transform: translate3d(25%, -80%, 0) scale(0.5);
+    background: #FFF;
+    opacity: 0;
+    @include trans();
+    @include card(4);
+    &.open 
+        opacity: 1;
+        transform: translateX(-50%) scale(1);
+    
+    h3 
+        margin-top: 0;
+    
+    .close-login 
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        cursor: pointer;
+        font-size: 2em;
+        padding: 10px 15px;
+        opacity: 0.2;
+    
+
+
+.at-input 
+    margin-bottom: 10px;

@@ -1,0 +1,11 @@
+<template name="userBuildingRoomsView">
+    <button><a href="/view-buildings-page">Back to Buildings Page</a></button>
+    <section class="rooms">
+	    {{#each rooms}}
+	    	{{#if inUserBuilding building_id available}}
+	        	{{> UserBuildingRoom}} 
+	        {{/if}}
+	    {{/each}}
+	    
+	</section>
+</template>

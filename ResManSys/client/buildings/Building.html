@@ -9,9 +9,17 @@ That is the entries in the room collection(database) related to the building. --
                 {{> quickForm collection="Buildings" id=updateBuildingId type="update" doc=this}}  <!--if editmode is enabled, the quickForm for updating the building will appear-->
             {{else}}
                <p>{{address}}</p>
+               <p>Facilities: </p>
+               <p>
+                   <span>| </span>
+                   {{#each facilities}}
+                   <span class="facility">{{name}} |</span>
+                   {{/each}}
+                </p>
                <a href="/building-rooms/{{_id}}">Rooms</a>
             {{/if}}
             <i class="fa fa-pencil"></i>                         <!--These are the edit and remove icons, look in the Building.js to see how they work-->
             <i class="fa fa-trash"></i>
+
         </article>
 </template>

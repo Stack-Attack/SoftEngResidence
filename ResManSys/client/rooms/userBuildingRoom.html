@@ -1,0 +1,21 @@
+<template name="UserBuildingRoom">
+        <article class="room">
+            <h3>Room {{number}}</h3>
+            <p><b>Type: </b>{{typeOfRoom}}</p>
+            <p><b>Capacity: </b> {{capacity}}</p>
+            <p><b>Number of occupants: </b> 
+            {{#if occupants}}
+               {{numberOfOccupants occupants}}
+            {{else}}
+                There are no occupants.
+            {{/if}}</p>
+               <p><b>Appliances: </b>
+                   {{#each devices}}
+                   <span class="device">{{name}},</span>
+                   {{/each}}
+                </p>
+                
+                
+                
+        </article>
+</template>

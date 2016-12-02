@@ -1,0 +1,35 @@
+<template name="Room">
+    <article class="room">
+            <h3><b>Room </b>{{number}}</h3>
+            {{#if editMode}}
+                {{> quickForm collection="Rooms" id=updateRoomId type="update" doc=this}}  <!--if editmode is enabled, the quickForm for updating the building will appear-->
+            {{else}}
+            <p><b>Type: </b>{{typeOfRoom}}</p>
+            <p><b>Capacity: </b> {{capacity}}</p>
+                <p>
+                    {{#if occupants}}
+                   <b>Occupants: 
+                   </b>{{#each occupants}}
+                       <span class="occupant">[ {{name}},</span>
+                        <span class="occupant">{{studentNumber}} ] |</span>
+                   {{/each}}
+                   {{else}}
+                       <b>Occupants: </b> <span class="occupant">None</span>
+                   {{/if}}
+                </p>
+               <p>
+                   <b>Appliances: </b><span>| </span>{{#each devices}}
+                   <span class="device">{{name}} |</span>
+                   {{/each}}
+                </p>
+            {{/if}}
+            <i class="fa fa-pencil"></i>
+            <i class="fa fa-trash"></i>
+           
+            {{#if available}}
+               <button class='toggleAvailible available'>Available</button>
+            {{else}}
+                <button class='toggleAvailible available'>Unavailable</button>
+            {{/if}}
+        </article>
+</template> 

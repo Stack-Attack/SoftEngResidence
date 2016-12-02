@@ -1,0 +1,13 @@
+<!--This is a template - it is used in other files()-->
+<template name="Announcements">
+	{{#if $.Session.get 'newAnnouncement'}}  						
+	     {{> NewAnnouncement}}                                         
+	{{else}}	                                                
+	    <button class="btn-new-announcement">New Announcement</button>
+	{{/if}}
+	<section class="announcements">
+	    {{#each announcements}}
+	        {{> Announcement}}                                                    
+	    {{/each}}
+	</section>
+</template>

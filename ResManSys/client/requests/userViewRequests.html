@@ -1,0 +1,11 @@
+<template name="UserViewRequests">
+    <section class="requests">
+	    {{#each requests}}
+	
+	    	{{#if thisAuthor currentUser author}}
+	        	{{> UserRequest}} 
+	        {{/if}}
+	    {{/each}}
+	    
+	</section>
+</template>
